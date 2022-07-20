@@ -184,6 +184,9 @@ type Configuration struct {
 
 	// Optimize duplicate content streams across pages.
 	OptimizeDuplicateContentStreams bool
+
+	// Overwrite existing bookmarks
+	OverwriteBookmarks bool
 }
 
 // ConfigPath defines the location of pdfcpu's configuration directory.

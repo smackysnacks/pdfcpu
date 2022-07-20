@@ -47,7 +47,7 @@ func AddBookmarks(rs io.ReadSeeker, w io.Writer, bms []pdf.Bookmark, conf *pdf.C
 
 	from := time.Now()
 
-	if err := ctx.AddBookmarks(bms); err != nil {
+	if err := ctx.AddBookmarks(bms, conf.OverwriteBookmarks); err != nil {
 		return err
 	}
 

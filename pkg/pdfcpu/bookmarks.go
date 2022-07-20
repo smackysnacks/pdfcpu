@@ -317,11 +317,15 @@ func createOutlineItemDict(ctx *Context, bms []Bookmark, parent *IndirectRef, pa
 }
 
 // AddBookmarks adds bms to ctx.
-func (ctx *Context) AddBookmarks(bms []Bookmark) error {
+func (ctx *Context) AddBookmarks(bms []Bookmark, overwriteExisting bool) error {
 
 	rootDict, err := ctx.Catalog()
 	if err != nil {
 		return err
+	}
+
+	if overwriteExisting {
+		rootDict.Delete("Outlines")
 	}
 
 	if _, ok := rootDict.Find("Outlines"); ok {
