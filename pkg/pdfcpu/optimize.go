@@ -1387,9 +1387,9 @@ func OptimizeXRefTable(ctx *Context) error {
 	}
 
 	// Get rid of duplicate embedded fonts and images.
-	if err := optimizeFontAndImages(ctx); err != nil {
-		return err
-	}
+	//if err := optimizeFontAndImages(ctx); err != nil {
+	//	return err
+	//}
 
 	// Get rid of PieceInfo dict from root.
 	if err := ctx.deleteDictEntry(ctx.RootDict, "PieceInfo"); err != nil {
