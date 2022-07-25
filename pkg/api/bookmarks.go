@@ -30,7 +30,7 @@ func AddBookmarks(rs io.ReadSeeker, w io.Writer, bms []pdf.Bookmark, conf *pdf.C
 
 	if conf == nil {
 		conf = pdf.NewDefaultConfiguration()
-	} else {
+	} else if conf.ValidationMode != pdf.ValidationNone {
 		conf.ValidationMode = pdf.ValidationRelaxed
 	}
 	conf.Cmd = pdf.ADDBOOKMARKS
