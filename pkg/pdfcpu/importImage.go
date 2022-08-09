@@ -424,6 +424,7 @@ func importImagePDFBytes(wr io.Writer, pageDim *Dim, imgWidth, imgHeight float64
 
 	vpw := float64(pageDim.Width)
 	vph := float64(pageDim.Height)
+	vp := RectForDim(vpw, vph)
 
 	bb := RectForDim(vpw, vph)
 	if imp.BgColor != nil {
@@ -467,7 +468,7 @@ func importImagePDFBytes(wr io.Writer, pageDim *Dim, imgWidth, imgHeight float64
 	m[1][1] = bb.Height()
 
 	// Translate
-	ll := lowerLeftCorner(bb, bb.Width(), bb.Height(), imp.Pos)
+	ll := lowerLeftCorner(vp, bb.Width(), bb.Height(), imp.Pos)
 	m[2][0] = ll.X + float64(imp.Dx)
 	m[2][1] = ll.Y + float64(imp.Dy)
 
