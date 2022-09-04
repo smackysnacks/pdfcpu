@@ -613,7 +613,7 @@ func validateNameTreeDictNamesEntry(xRefTable *pdf.XRefTable, d pdf.Dict, name s
 			if !ok {
 				s, ok := o.(pdf.HexLiteral)
 				if !ok {
-					return "", "", errors.Errorf("pdfcpu: validateNameTreeDictNamesEntry: corrupt key <%v>\n", o)
+					continue
 				}
 				key = s.Value()
 			} else {

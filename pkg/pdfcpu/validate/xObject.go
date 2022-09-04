@@ -681,19 +681,21 @@ func validateFormStreamDictPart2(xRefTable *pdf.XRefTable, d pdf.Dict, dictName 
 	}
 
 	// StructParent, integer
-	sp, err := validateIntegerEntry(xRefTable, d, dictName, "StructParent", OPTIONAL, pdf.V13, nil)
+	//sp, err := validateIntegerEntry(xRefTable, d, dictName, "StructParent", OPTIONAL, pdf.V13, nil)
+	_, err = validateIntegerEntry(xRefTable, d, dictName, "StructParent", OPTIONAL, pdf.V13, nil)
 	if err != nil {
 		return err
 	}
 
 	// StructParents, integer
-	sps, err := validateIntegerEntry(xRefTable, d, dictName, "StructParents", OPTIONAL, pdf.V13, nil)
+	//sps, err := validateIntegerEntry(xRefTable, d, dictName, "StructParents", OPTIONAL, pdf.V13, nil)
+	_, err = validateIntegerEntry(xRefTable, d, dictName, "StructParents", OPTIONAL, pdf.V13, nil)
 	if err != nil {
 		return err
 	}
-	if sp != nil && sps != nil {
-		return errors.New("pdfcpu: validateFormStreamDictPart2: only \"StructParent\" or \"StructParents\" allowed")
-	}
+	//if sp != nil && sps != nil {
+	//	return errors.New("pdfcpu: validateFormStreamDictPart2: only \"StructParent\" or \"StructParents\" allowed")
+	//}
 
 	// OPI, dict, optional, since V1.2
 	err = validateEntryOPI(xRefTable, d, dictName, "OPI", OPTIONAL, pdf.V12)
